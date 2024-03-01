@@ -6,6 +6,10 @@ class HomePage extends Page {
     return $("button.consent-button.agree-consent--all");
   }
 
+  public get cookiesOnlyNecessaryButton() {
+    return $("button.consent-button agree-necessary-cookie");
+  }
+
   private get searchTermInput() {
     return $(
       '[placeholder="Fachbereich, Name des Arztes, Praxis oder Einrichtung"]'
@@ -25,10 +29,7 @@ class HomePage extends Page {
     if (accept) {
       await this.cookiesAcceptButton.click();
     } else {
-      // Assume there is a reject button (replace with the actual selector)
-      const rejectButton = $("button.reject-button");
-      await rejectButton.waitForEnabled();
-      await rejectButton.click();
+      await this.cookiesOnlyNecessaryButton.click();
     }
   }
 

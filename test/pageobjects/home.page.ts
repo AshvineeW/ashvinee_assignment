@@ -1,7 +1,7 @@
 import Page from "./page";
 
 class HomePage extends Page {
-  //#region HomePage locators
+  //#region Home Page locators
   public get cookiesAcceptButton() {
     return $("button.consent-button.agree-consent--all");
   }
